@@ -1,0 +1,91 @@
+@mixin focus-ring($offset: 2px) {
+  outline: 2px solid var(--color-focus);
+  outline-offset: $offset;
+}
+
+@mixin reset-button {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+}
+
+@mixin section-label {
+  font: var(--text-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+@mixin thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/**
+ * Стеклянная поверхность: навигация, панели, диалоги, плавающие тулбары.
+ * Содержимое (сетка изображений, формы внутри карточек) — на непрозрачных поверхностях.
+ */
+@mixin glass($strong: false) {
+  border: 1px solid var(--glass-border);
+  @if $strong {
+    background: var(--glass-bg-strong);
+  } @else {
+    background: var(--glass-bg);
+  }
+  box-shadow:
+    var(--glass-highlight),
+    0 0 0 1px var(--glass-edge),
+    var(--glass-shadow);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+
+  // Без backdrop-filter полупрозрачный фон ухудшает читаемость
+  @supports not (backdrop-filter: blur(1px)) {
+    background: var(--color-surface);
+  }
+}
+
+/** Шахматный фон под изображениями с прозрачностью. */
+@mixin checkerboard($size: 16px) {
+  background-color: var(--color-surface-muted);
+  background-image:
+    linear-gradient(45deg, var(--checkerboard) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--checkerboard) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--checkerboard) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--checkerboard) 75%);
+  background-size: $size $size;
+  background-position:
+    0 0,
+    0 calc($size / 2),
+    calc($size / 2) calc(-1 * $size / 2),
+    calc(-1 * $size / 2) 0;
+}

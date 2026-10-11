@@ -1,0 +1,47 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.mark {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 4px 10px rgb(0 51 153 / 30%));
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.caption {
+  color: var(--color-text-secondary);
+  font: var(--text-label);
+  letter-spacing: 0.12em;
+}
+
+.lg {
+  gap: var(--space-4);
+
+  .mark {
+    width: 52px;
+    height: 52px;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+
+  .caption {
+    font-size: 13px;
+  }
+}

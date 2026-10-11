@@ -1,0 +1,38 @@
+@use '@shared/styles/mixins' as *;
+
+.zone {
+  position: relative;
+  min-height: 60vh;
+}
+
+.overlay {
+  position: absolute;
+  inset: calc(-1 * var(--space-3));
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--color-accent);
+  border-radius: var(--radius-panel);
+  background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.visible {
+  opacity: 1;
+}
+
+.target {
+  @include glass(true);
+  position: sticky;
+  top: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-8);
+  border-radius: var(--radius-panel);
+  color: var(--color-primary);
+  font: var(--text-subtitle);
+}

@@ -1,0 +1,36 @@
+@use '@shared/styles/mixins' as *;
+
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font: var(--text-caption);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  align-items: start;
+  gap: var(--space-5);
+}
+
+.similar {
+  margin-top: var(--space-10);
+}
+
+.sectionTitle {
+  margin-bottom: var(--space-4);
+  font: var(--text-title);
+}
+
+.similarGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-4);
+}

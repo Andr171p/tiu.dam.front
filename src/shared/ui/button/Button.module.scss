@@ -1,0 +1,146 @@
+@use '@shared/styles/mixins' as *;
+
+.button {
+  @include reset-button;
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border-radius: var(--radius-control);
+  font: var(--text-control);
+  white-space: nowrap;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+
+  &:focus-visible {
+    @include focus-ring(2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+}
+
+.md {
+  height: var(--control-height);
+  padding: 0 var(--space-4);
+}
+
+.sm {
+  height: var(--control-height-sm);
+  padding: 0 var(--space-3);
+}
+
+.block {
+  width: 100%;
+}
+
+.icon {
+  padding: 0;
+  aspect-ratio: 1;
+}
+
+.primary {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    color-mix(in srgb, var(--color-primary) 70%, var(--color-accent))
+  );
+  color: var(--color-on-primary);
+  box-shadow: 0 4px 14px
+    color-mix(in srgb, var(--color-primary) 30%, transparent);
+
+  &:hover:not(:disabled) {
+    box-shadow: 0 6px 22px
+      color-mix(in srgb, var(--color-primary) 42%, transparent);
+  }
+}
+
+.secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: inset 0 0 0 1px var(--color-border-strong);
+
+  &:hover:not(:disabled) {
+    background: var(--color-surface-muted);
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+
+  &:hover:not(:disabled) {
+    background: var(--color-surface-hover);
+    color: var(--color-text);
+  }
+}
+
+.glass {
+  @include glass;
+  color: var(--color-text);
+
+  &:hover:not(:disabled) {
+    background: var(--glass-bg-strong);
+  }
+}
+
+.danger {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+
+  &:hover:not(:disabled) {
+    background: var(--color-danger);
+    color: #fff;
+  }
+}
+
+.link {
+  text-decoration: none;
+}
+
+/* Подсказка иконок-кнопок: без JS и порталов */
+.icon[data-tooltip] {
+  &::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    z-index: 40;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    background: var(--color-text);
+    color: var(--color-canvas);
+    font: var(--text-caption);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 4px);
+    transition:
+      opacity var(--transition),
+      transform var(--transition);
+  }
+
+  &[data-tooltip-below]::after {
+    top: calc(100% + 6px);
+    bottom: auto;
+    transform: translate(-50%, -4px);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    transition-delay: 300ms;
+  }
+}

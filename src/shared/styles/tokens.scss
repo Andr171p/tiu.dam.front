@@ -1,0 +1,160 @@
+// Семантические токены ТИУ Медиатеки. Имена одинаковы в светлой и тёмной теме.
+
+:root {
+  --font-sans:
+    'Inter Variable', Inter, system-ui, -apple-system, 'Segoe UI', Roboto,
+    sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --text-display: 650 28px/36px var(--font-sans);
+  --text-title: 600 20px/28px var(--font-sans);
+  --text-subtitle: 600 15px/22px var(--font-sans);
+  --text-body: 400 14px/22px var(--font-sans);
+  --text-control: 500 13px/20px var(--font-sans);
+  --text-caption: 400 12px/18px var(--font-sans);
+  --text-label: 600 11px/16px var(--font-sans);
+  --text-code: 400 12px/18px var(--font-mono);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  --radius-sm: 6px;
+  --radius-control: 10px;
+  --radius-card: 14px;
+  --radius-panel: 20px;
+  --radius-round: 999px;
+
+  --sidebar-width: 248px;
+  --inset: 12px;
+  --control-height: 38px;
+  --control-height-sm: 32px;
+  --content-width: 1440px;
+
+  --transition: 150ms ease;
+  --transition-slow: 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --glass-blur: blur(24px) saturate(180%);
+}
+
+// ---------------------------------------------------------------------------------------------
+// Светлая тема (палитра ТИУ)
+// ---------------------------------------------------------------------------------------------
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --color-primary: #003399;
+  --color-primary-hover: #002a80;
+  --color-primary-pressed: #002266;
+  --color-primary-soft: rgb(0 51 153 / 8%);
+  --color-primary-soft-strong: rgb(0 51 153 / 14%);
+  --color-on-primary: #ffffff;
+
+  --color-accent: #00a3e0;
+  --color-accent-soft: rgb(0 163 224 / 12%);
+
+  --color-canvas: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f3f6;
+  --color-surface-hover: rgb(26 29 32 / 5%);
+  --color-surface-active: rgb(26 29 32 / 9%);
+  --color-backdrop: rgb(10 20 45 / 32%);
+
+  --color-text: #1a1d20;
+  --color-text-secondary: #6c757d;
+  --color-text-disabled: #adb5bd;
+
+  --color-border: rgb(26 29 32 / 9%);
+  --color-border-strong: rgb(26 29 32 / 16%);
+  --color-focus: #00a3e0;
+
+  --color-success: #198754;
+  --color-success-soft: rgb(25 135 84 / 12%);
+  --color-warning: #b58100;
+  --color-warning-fill: #ffc107;
+  --color-warning-soft: rgb(255 193 7 / 18%);
+  --color-danger: #dc3545;
+  --color-danger-soft: rgb(220 53 69 / 10%);
+
+  --glass-bg: rgb(255 255 255 / 62%);
+  --glass-bg-strong: rgb(255 255 255 / 82%);
+  --glass-border: rgb(255 255 255 / 70%);
+  --glass-edge: rgb(26 29 32 / 7%);
+  --glass-highlight: inset 0 1px 0 rgb(255 255 255 / 80%);
+  --glass-shadow: 0 10px 40px rgb(0 51 153 / 8%), 0 2px 8px rgb(26 29 32 / 4%);
+
+  --canvas-glow-1: rgb(0 51 153 / 11%);
+  --canvas-glow-2: rgb(0 163 224 / 14%);
+
+  --shadow-card: 0 1px 2px rgb(26 29 32 / 5%), 0 4px 16px rgb(26 29 32 / 4%);
+  --shadow-card-hover: 0 8px 28px rgb(0 51 153 / 12%);
+  --shadow-popover: 0 18px 50px rgb(10 20 45 / 18%);
+
+  --checkerboard: #e9ecef;
+}
+
+// ---------------------------------------------------------------------------------------------
+// Тёмная тема: primary светлее, иначе #003399 нечитаем на тёмном фоне
+// ---------------------------------------------------------------------------------------------
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-primary: #4c7dff;
+  --color-primary-hover: #6690ff;
+  --color-primary-pressed: #3a69e6;
+  --color-primary-soft: rgb(76 125 255 / 14%);
+  --color-primary-soft-strong: rgb(76 125 255 / 22%);
+  --color-on-primary: #ffffff;
+
+  --color-accent: #2bb8ee;
+  --color-accent-soft: rgb(43 184 238 / 14%);
+
+  --color-canvas: #0a0f1c;
+  --color-surface: #121a2c;
+  --color-surface-muted: #172036;
+  --color-surface-hover: rgb(255 255 255 / 6%);
+  --color-surface-active: rgb(255 255 255 / 10%);
+  --color-backdrop: rgb(0 0 0 / 55%);
+
+  --color-text: #e9edf5;
+  --color-text-secondary: #95a0b4;
+  --color-text-disabled: #5b6578;
+
+  --color-border: rgb(255 255 255 / 8%);
+  --color-border-strong: rgb(255 255 255 / 15%);
+  --color-focus: #2bb8ee;
+
+  --color-success: #4cc38a;
+  --color-success-soft: rgb(76 195 138 / 14%);
+  --color-warning: #ffcd3c;
+  --color-warning-fill: #ffc107;
+  --color-warning-soft: rgb(255 193 7 / 14%);
+  --color-danger: #ff6b7a;
+  --color-danger-soft: rgb(255 107 122 / 14%);
+
+  --glass-bg: rgb(18 26 44 / 58%);
+  --glass-bg-strong: rgb(18 26 44 / 84%);
+  --glass-border: rgb(255 255 255 / 8%);
+  --glass-edge: rgb(255 255 255 / 6%);
+  --glass-highlight: inset 0 1px 0 rgb(255 255 255 / 6%);
+  --glass-shadow: 0 18px 50px rgb(0 0 0 / 45%);
+
+  --canvas-glow-1: rgb(0 51 153 / 38%);
+  --canvas-glow-2: rgb(0 163 224 / 16%);
+
+  --shadow-card:
+    0 1px 0 rgb(255 255 255 / 4%) inset, 0 6px 20px rgb(0 0 0 / 25%);
+  --shadow-card-hover: 0 10px 34px rgb(0 0 0 / 45%);
+  --shadow-popover: 0 18px 50px rgb(0 0 0 / 55%);
+
+  --checkerboard: #1b2438;
+}
