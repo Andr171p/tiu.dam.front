@@ -1,0 +1,24 @@
+.track {
+  height: 3px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--color-border);
+}
+
+.bar {
+  height: 100%;
+  border-radius: inherit;
+  transition: width var(--transition-slow);
+}
+
+.accent {
+  background: var(--color-accent);
+}
+
+.video {
+  background: var(--color-video);
+}
+
+.neutral {
+  background: var(--color-text-secondary);
+}

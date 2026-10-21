@@ -1,0 +1,118 @@
+// Семантические токены по макету Penpot «ТИУ DAM · Основные сценарии» (экран 08 — основа интерфейса).
+// Нейтральная рамка для медиа: сетка 8 px, радиусы 4–8 px, Inter Tight. Только светлая тема.
+
+:root {
+  color-scheme: light;
+
+  --font-text:
+    'Inter Tight Variable', 'Inter Tight', system-ui, -apple-system, 'Segoe UI',
+    Roboto, sans-serif;
+  --font-ui: var(--font-text);
+
+  // Типографика
+  --text-display: 600 42px/1.4 var(--font-ui);
+  --text-page-title: 600 30px/1.4 var(--font-ui);
+  --text-title: 600 21px/1.4 var(--font-ui);
+  --text-card-title: 600 20px/1.4 var(--font-ui);
+  --text-subtitle: 600 16px/1.4 var(--font-ui);
+  --text-tab: 500 15px/1.4 var(--font-ui);
+  --text-button: 500 14px/1.4 var(--font-ui);
+  --text-control: 400 14px/1.4 var(--font-ui);
+  --text-item: 500 14px/1.4 var(--font-ui);
+  --text-small: 400 13px/1.4 var(--font-ui);
+  --text-meta: 400 12px/1.4 var(--font-ui);
+  --text-chip: 500 12px/1.4 var(--font-ui);
+  --text-caption: 400 11px/1.4 var(--font-ui);
+  --text-label: 600 10px/1.4 var(--font-ui);
+
+  // Сетка 8 px (с половинным шагом)
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  // Скругления 4–8 px
+  --radius-sm: 4px;
+  --radius-control: 6px;
+  --radius-card: 6px;
+  --radius-panel: 8px;
+  --radius-round: 999px;
+
+  // Геометрия
+  --header-height: 80px;
+  --sidebar-width: 236px;
+  --inspector-width: 464px;
+  --page-gutter: 32px;
+  --control-height: 40px;
+  --control-height-sm: 32px;
+  --chip-height: 28px;
+  --search-height: 44px;
+
+  --transition: 140ms ease;
+  --transition-slow: 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  // Поверхности
+  --color-canvas: #f4f5f7;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f4f5f7;
+  --color-surface-hover: #f8f9fa;
+  --color-surface-active: #eef0f3;
+  --color-elevated: #ffffff;
+  --color-media: #e8ebef;
+  --color-media-dark: #252a32;
+  --color-backdrop: rgb(32 37 45 / 25%);
+
+  // Границы
+  --color-border: #e7e8ed;
+  --color-border-strong: #d3d7de;
+  --color-border-dashed: #bec8d5;
+
+  // Текст
+  --color-text: #20252d;
+  --color-text-body: #20252d;
+  --color-text-secondary: #6d7886;
+  --color-text-tertiary: #8a94a1;
+  --color-text-disabled: #aab1bb;
+
+  // Синий — действие и выбранное состояние
+  --color-accent: #034ea2;
+  --color-accent-hover: #02448e;
+  --color-accent-pressed: #023a79;
+  --color-accent-disabled: #b5c8e0;
+  --color-accent-text: #034ea2;
+  --color-accent-icon: #034ea2;
+  --color-accent-soft: #eaf1fa;
+  --color-accent-soft-strong: #dce4ef;
+  --color-accent-soft-border: #ceddf0;
+  --color-on-accent: #ffffff;
+  --color-on-accent-disabled: #ffffff;
+  --color-focus: #034ea2;
+
+  // Фиолетовый — предложения AI
+  --color-ai: #2b1f6e;
+  --color-ai-soft: #f0eef8;
+  --color-ai-lane: #e4e0f3;
+
+  // Голубой — видеоразметка
+  --color-video: #00b0f0;
+  --color-video-track: #697381;
+
+  // Состояния: всегда с текстом, не только цветом
+  --color-success: #26714c;
+  --color-success-soft: #eaf5ef;
+  --color-warning: #91621d;
+  --color-warning-soft: #fbf3e5;
+  --color-danger: #b42318;
+  --color-danger-soft: #fdeceb;
+  --color-info: #034ea2;
+
+  --shadow-popover:
+    0 12px 32px rgb(32 37 45 / 12%), 0 2px 6px rgb(32 37 45 / 6%);
+  --shadow-dialog: 0 24px 64px rgb(32 37 45 / 18%);
+}

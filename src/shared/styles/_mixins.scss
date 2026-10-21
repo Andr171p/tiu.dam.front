@@ -1,0 +1,139 @@
+@mixin focus-ring($offset: 2px) {
+  outline: 2px solid var(--color-focus);
+  outline-offset: $offset;
+}
+
+@mixin reset-button {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+/** Подпись секции капсом: «КОЛЛЕКЦИИ», «РАБОЧЕЕ ПРОСТРАНСТВО» */
+@mixin section-label {
+  font: var(--text-label);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+}
+
+@mixin thin-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/** Белая карточка без рамки: материалы, коллекции, панели */
+@mixin card {
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+/** Белая поверхность с рамкой: кнопки второго уровня, поля, карточки сцен */
+@mixin outlined {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+/** Метка 28 px: «Все типы», «Прокси 720p», AI-теги */
+@mixin chip {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-1);
+  height: var(--chip-height);
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  font: var(--text-chip);
+  white-space: nowrap;
+}
+
+/** Подчёркнутая вкладка: «Информация · Версии», «Сцены · Участники · Текст» */
+@mixin tab {
+  @include reset-button;
+  position: relative;
+  padding: var(--space-1) 0 var(--space-4);
+  color: var(--color-text-secondary);
+  font: var(--text-tab);
+  white-space: nowrap;
+  transition: color var(--transition);
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    height: 2px;
+    background: transparent;
+    content: '';
+  }
+
+  &:hover {
+    color: var(--color-text);
+  }
+
+  &[aria-selected='true'] {
+    color: var(--color-accent-text);
+    font-weight: 600;
+
+    &::after {
+      background: var(--color-accent);
+    }
+  }
+
+  &:disabled {
+    color: var(--color-text-disabled);
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    @include focus-ring(2px);
+  }
+}
+
+/** Сетка карточек материалов: 4 колонки на 1440, дальше по ширине */
+@mixin media-grid($min: 240px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+  gap: 20px;
+}
+
+@mixin mobile {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin narrow {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}

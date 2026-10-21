@@ -1,0 +1,42 @@
+@use '@shared/styles/mixins' as *;
+
+.chip {
+  @include reset-button;
+  @include chip;
+  padding: 0 10px;
+  color: var(--color-text);
+  font: 400 13px/1.4 var(--font-ui);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+
+  &:hover:not(:disabled) {
+    background: var(--color-surface-active);
+  }
+
+  &:focus-visible {
+    @include focus-ring(2px);
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+}
+
+.selected {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-text);
+  font-weight: 500;
+
+  &:hover:not(:disabled) {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-text);
+  }
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}

@@ -1,0 +1,19 @@
+.page,
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  gap: var(--space-7);
+}
+
+.section {
+  gap: var(--space-4);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 18px;
+}

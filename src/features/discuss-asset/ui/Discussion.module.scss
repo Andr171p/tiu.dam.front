@@ -1,0 +1,151 @@
+@use '@shared/styles/mixins' as *;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h3 {
+    font: var(--text-subtitle);
+  }
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  border-radius: var(--radius-control);
+  transition: background-color var(--transition);
+}
+
+.focused {
+  margin: calc(-1 * var(--space-2));
+  padding: var(--space-2);
+  background: var(--color-accent-soft);
+}
+
+.reply {
+  margin-left: 42px;
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--color-border);
+}
+
+.resolved > .text {
+  color: var(--color-text-secondary);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.avatar {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-text);
+  font: 600 10px/1 var(--font-ui);
+}
+
+.byline {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.author {
+  font: 600 12px/1.4 var(--font-ui);
+}
+
+.anchor {
+  @include reset-button;
+  align-self: flex-start;
+  color: var(--color-accent-text);
+  font: var(--text-caption);
+
+  &:hover:not(:disabled) {
+    text-decoration: underline;
+  }
+
+  &:disabled {
+    color: var(--color-text-secondary);
+    cursor: default;
+  }
+}
+
+.text {
+  font: var(--text-small);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+
+  button {
+    font-size: 12px;
+  }
+}
+
+.actions .secondaryAction {
+  margin-left: auto;
+  color: var(--color-text-secondary);
+}
+
+.composer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.field {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-1);
+  width: 100%;
+  min-height: 42px;
+  padding: 0 var(--space-1) 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-muted);
+  transition: border-color var(--transition);
+
+  &:focus-within {
+    border-color: var(--color-accent);
+    background: var(--color-surface);
+  }
+}
+
+.input {
+  flex: 1;
+  min-height: 40px;
+  max-height: 160px;
+  padding: 11px 0;
+  border: 0;
+  background: none;
+  font: var(--text-meta);
+  resize: none;
+  outline: none;
+  field-sizing: content;
+
+  &::placeholder {
+    color: var(--color-text-secondary);
+  }
+}

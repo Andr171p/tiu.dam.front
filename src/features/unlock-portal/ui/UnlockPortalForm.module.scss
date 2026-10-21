@@ -1,0 +1,29 @@
+@use '@shared/styles/mixins' as *;
+
+.form {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: min(400px, 100%);
+  padding: var(--space-8);
+}
+
+.icon {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: var(--space-3);
+  border-radius: var(--radius-card);
+  background: var(--color-accent-soft);
+  color: var(--color-accent-icon);
+}
+
+.title {
+  font: var(--text-card-title);
+}
+
+.description {
+  margin-top: calc(-1 * var(--space-2));
+  color: var(--color-text-secondary);
+  font: var(--text-small);
+}

@@ -1,0 +1,59 @@
+@use '@shared/styles/mixins' as *;
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-6);
+
+  @include mobile {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+}
+
+.text {
+  min-width: 0;
+}
+
+.title {
+  font: var(--text-page-title);
+  overflow-wrap: anywhere;
+}
+
+.description {
+  margin-top: 2px;
+  color: var(--color-text-secondary);
+  font: var(--text-control);
+}
+
+.actions {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: 5px;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  font: var(--text-title);
+}
+
+.groupTitle {
+  font: 600 17px/1.4 var(--font-ui);
+}
+
+.count {
+  color: var(--color-text-secondary);
+  font: var(--text-small);
+}

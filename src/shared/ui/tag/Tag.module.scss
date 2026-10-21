@@ -1,0 +1,58 @@
+@use '@shared/styles/mixins' as *;
+
+.tag {
+  @include chip;
+}
+
+.accent {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-text);
+}
+
+.ai {
+  background: var(--color-ai-soft);
+  color: var(--color-ai);
+}
+
+.success {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.warning {
+  background: var(--color-warning-soft);
+  color: var(--color-warning);
+}
+
+.danger {
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+.neutral {
+  background: var(--color-surface-muted);
+  color: var(--color-text-secondary);
+}
+
+.surface {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.remove {
+  @include reset-button;
+  display: inline-flex;
+  margin-right: -4px;
+  padding: 2px;
+  border-radius: 3px;
+  color: inherit;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    @include focus-ring(1px);
+  }
+}

@@ -1,0 +1,49 @@
+@use '@shared/styles/mixins' as *;
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text);
+}
+
+.mark {
+  display: block;
+  width: 66px;
+  height: auto;
+}
+
+.divider {
+  width: 1px;
+  height: 36px;
+  margin: 0 var(--space-4) 0 18px;
+  background: var(--color-border);
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.name {
+  font: 600 16px/1.2 var(--font-ui);
+}
+
+.owner {
+  width: 96px;
+  color: var(--color-text-secondary);
+  font: 500 7px/1.25 var(--font-ui);
+  text-transform: uppercase;
+}
+
+.portal {
+  gap: var(--space-6);
+
+  .mark {
+    width: 75px;
+  }
+}
+
+.portalTitle {
+  font: 600 18px/1.4 var(--font-ui);
+}

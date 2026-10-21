@@ -1,0 +1,74 @@
+@use '@shared/styles/tokens';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-text);
+  font: var(--text-control);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --page-gutter: 16px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+figure {
+  margin: 0;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--color-accent-soft-strong);
+}
+
+/** Вертикальная форма: поля и действия диалогов */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}

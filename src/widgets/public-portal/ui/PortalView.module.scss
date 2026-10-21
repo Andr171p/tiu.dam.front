@@ -1,0 +1,285 @@
+@use '@shared/styles/mixins' as *;
+
+.portal {
+  min-height: 100dvh;
+  background: var(--color-canvas);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: 88px;
+  padding: 0 var(--space-12);
+  background: var(--color-surface);
+
+  @include mobile {
+    padding: 0 var(--space-4);
+  }
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-10);
+  margin-left: auto;
+
+  a {
+    color: var(--color-text);
+    font: var(--text-control);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-accent-text);
+    }
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-8) var(--space-10);
+
+  @include mobile {
+    padding: var(--space-4);
+  }
+}
+
+.hero {
+  @include card;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 526px);
+  min-height: 320px;
+  overflow: hidden;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding: var(--space-7) var(--space-8);
+}
+
+.heroTitle {
+  max-width: 750px;
+  font: var(--text-display);
+}
+
+.heroSubtitle {
+  max-width: 520px;
+  color: var(--color-text-secondary);
+  font: 400 16px/1.4 var(--font-ui);
+}
+
+.heroImage {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+
+  @include mobile {
+    height: 240px;
+  }
+}
+
+.text {
+  @include card;
+  padding: var(--space-6) var(--space-8);
+  font: 400 15px/1.6 var(--font-text);
+
+  h1,
+  h2,
+  h3 {
+    margin-bottom: var(--space-3);
+    font: var(--text-title);
+  }
+
+  p + p {
+    margin-top: var(--space-3);
+  }
+
+  a {
+    color: var(--color-accent-text);
+  }
+}
+
+.materials,
+.files {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: 0 var(--space-4);
+}
+
+.materialsHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-6);
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.materialsTitle {
+  font: 600 26px/1.4 var(--font-ui);
+}
+
+.muted {
+  color: var(--color-text-secondary);
+  font: var(--text-small);
+}
+
+.search {
+  width: min(440px, 100%);
+}
+
+.categories {
+  gap: var(--space-5);
+}
+
+.grid {
+  @include media-grid(260px);
+  gap: var(--space-6);
+}
+
+.card {
+  @include reset-button;
+  @include card;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+
+  &:hover {
+    box-shadow: 0 0 0 1px var(--color-border-strong);
+
+    .cardTitle {
+      color: var(--color-accent-text);
+    }
+  }
+
+  &:focus-visible {
+    @include focus-ring(2px);
+  }
+}
+
+.cardImage {
+  aspect-ratio: 318 / 206;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--color-media);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.cardTitle {
+  @include truncate;
+  padding: 14px var(--space-3);
+  font: var(--text-item);
+  transition: color var(--transition);
+}
+
+.fileList {
+  @include card;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.file {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+
+  & + & {
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+.fileName {
+  @include truncate;
+  font: var(--text-item);
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 0 var(--space-4);
+
+  p {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-text-secondary);
+    font: var(--text-meta);
+
+    svg {
+      color: var(--color-accent-icon);
+    }
+  }
+}
+
+.contact {
+  color: var(--color-accent-text);
+  font: var(--text-chip);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.lightbox {
+  display: grid;
+  place-items: center;
+  max-height: 60vh;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--color-media);
+
+  img,
+  video {
+    display: block;
+    max-width: 100%;
+    max-height: 60vh;
+  }
+
+  audio {
+    width: 100%;
+    margin: var(--space-6);
+  }
+}
+
+.lightboxText {
+  font: var(--text-small);
+}
+
+.lightboxFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  color: var(--color-text-secondary);
+  font: var(--text-meta);
+}

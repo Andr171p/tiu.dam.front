@@ -1,0 +1,24 @@
+@use '@shared/styles/mixins' as *;
+
+.shell {
+  min-height: 100dvh;
+}
+
+.body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-7) var(--space-8) var(--space-10);
+
+  @include mobile {
+    padding: var(--space-5) var(--space-4) var(--space-8);
+  }
+}
+
+.bleed {
+  padding: 0;
+}

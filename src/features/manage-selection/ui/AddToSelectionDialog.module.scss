@@ -1,0 +1,46 @@
+@use '@shared/styles/mixins' as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 320px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  @include thin-scrollbar;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.item {
+  @include reset-button;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: var(--radius-control);
+  color: var(--color-text-secondary);
+
+  &:hover,
+  &:focus-visible {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-text);
+    outline: none;
+  }
+}
+
+.name {
+  @include truncate;
+  flex: 1;
+  color: var(--color-text);
+  font: var(--text-item);
+}
+
+.count {
+  font: var(--text-meta);
+}

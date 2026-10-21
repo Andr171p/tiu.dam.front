@@ -1,0 +1,17 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: calc(-1 * var(--space-3));
+}
+
+.role {
+  color: var(--color-text-secondary);
+  font: var(--text-meta);
+}

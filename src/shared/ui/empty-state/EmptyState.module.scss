@@ -1,0 +1,41 @@
+/** Пустое состояние или ошибка: заголовок, пояснение и следующий шаг */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 600px;
+  padding: var(--space-6);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.icon {
+  display: none;
+}
+
+.title {
+  font: var(--text-subtitle);
+}
+
+.description {
+  max-width: 420px;
+  margin-top: var(--space-2);
+  font: var(--text-control);
+  color: var(--color-text-secondary);
+}
+
+.action {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.warning {
+  background: var(--color-warning-soft);
+
+  .title,
+  .description {
+    color: var(--color-warning);
+  }
+}

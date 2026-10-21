@@ -1,0 +1,90 @@
+@use '@shared/styles/mixins' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: var(--space-7);
+  height: var(--header-height);
+  padding: 0 var(--space-7) 0 var(--space-7);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.brand {
+  display: flex;
+  flex: none;
+  width: calc(var(--sidebar-width) - 2 * var(--space-7) + 4px);
+  color: inherit;
+  text-decoration: none;
+
+  &:focus-visible {
+    @include focus-ring(4px);
+  }
+
+  @include mobile {
+    width: auto;
+  }
+}
+
+.actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--space-7);
+  margin-left: auto;
+}
+
+.user {
+  @include reset-button;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-1);
+  border-radius: var(--radius-control);
+
+  &:hover .userName {
+    color: var(--color-accent-text);
+  }
+
+  &:focus-visible {
+    @include focus-ring(2px);
+  }
+}
+
+.userText {
+  display: flex;
+  flex-direction: column;
+  max-width: 180px;
+
+  @include narrow {
+    display: none;
+  }
+}
+
+.userName {
+  @include truncate;
+  font: 500 13px/1.4 var(--font-ui);
+  transition: color var(--transition);
+}
+
+.userRole {
+  @include truncate;
+  color: var(--color-text-secondary);
+  font: 400 11px/1.4 var(--font-ui);
+}
+
+.avatar {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-text);
+  font: 600 12px/1 var(--font-ui);
+}

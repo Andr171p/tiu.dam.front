@@ -1,0 +1,64 @@
+@use '@shared/styles/mixins' as *;
+
+.card {
+  @include card;
+  display: flex;
+  height: 120px;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  transition: box-shadow var(--transition);
+
+  &:hover {
+    box-shadow: 0 0 0 1px var(--color-border-strong);
+
+    .name {
+      color: var(--color-accent-text);
+    }
+  }
+
+  &:focus-visible {
+    @include focus-ring(2px);
+  }
+}
+
+.cover {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 132px;
+  border-radius: var(--radius-card);
+  background: var(--color-media);
+  color: var(--color-text-secondary);
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+  }
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  padding: var(--space-6) var(--space-4) var(--space-4);
+}
+
+.name {
+  @include line-clamp(2);
+  font: var(--text-subtitle);
+  transition: color var(--transition);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font: var(--text-meta);
+}

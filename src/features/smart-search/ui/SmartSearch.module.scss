@@ -1,0 +1,23 @@
+@use '@shared/styles/mixins' as *;
+
+.search {
+  flex: 1;
+  max-width: 674px;
+  min-width: 0;
+}
+
+.imageButton {
+  @include reset-button;
+  display: inline-flex;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent-icon);
+
+  &:hover {
+    background: var(--color-accent-soft);
+  }
+
+  &:focus-visible {
+    @include focus-ring(1px);
+  }
+}

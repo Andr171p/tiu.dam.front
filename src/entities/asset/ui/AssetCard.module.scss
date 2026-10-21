@@ -1,0 +1,121 @@
+@use '@shared/styles/mixins' as *;
+
+.card {
+  @include card;
+  position: relative;
+  transition: box-shadow var(--transition);
+
+  &:hover {
+    box-shadow: 0 0 0 1px var(--color-border-strong);
+
+    .title {
+      color: var(--color-accent-text);
+    }
+  }
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: inherit;
+  color: inherit;
+  text-decoration: none;
+
+  &:focus-visible {
+    @include focus-ring(2px);
+  }
+}
+
+.thumb {
+  aspect-ratio: 270 / 166;
+}
+
+.duration {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px var(--space-3);
+}
+
+.title {
+  @include truncate;
+  font: var(--text-item);
+  transition: color var(--transition);
+}
+
+.note {
+  @include truncate;
+  color: var(--color-text-secondary);
+  font: var(--text-meta);
+}
+
+.action {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+}
+
+.row {
+  @include card;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &:hover .title {
+    color: var(--color-accent-text);
+  }
+}
+
+.rowLink {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 96px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 0;
+  padding: var(--space-2) var(--space-4) var(--space-2) var(--space-2);
+  color: inherit;
+  text-decoration: none;
+
+  &:focus-visible {
+    @include focus-ring(2px);
+  }
+
+  @include mobile {
+    grid-template-columns: 72px minmax(0, 1fr);
+
+    > :nth-child(n + 3) {
+      display: none;
+    }
+  }
+}
+
+.rowThumb {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+}
+
+.rowMain {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.rowDate {
+  color: var(--color-text-secondary);
+  font: var(--text-meta);
+  white-space: nowrap;
+}
+
+.rowAction {
+  flex: none;
+  padding-right: var(--space-3);
+}
